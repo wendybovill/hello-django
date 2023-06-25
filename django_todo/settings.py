@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-s*ktcib$#ssi)ligbb1o$seg1+5f)@ry48csfr!=64d_tcmz=l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-wendybovill-hellodjango-frit0kpfns9.ws-eu100.gitpod.io','127.0.0.1']
+ALLOWED_HOSTS = [
+    '8000-wendybovill-hellodjango-frit0kpfns9.ws-eu100.gitpod.io',
+    '127.0.0.1']
 
 
 # Application definition
@@ -37,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'todo'
 ]
 
 MIDDLEWARE = [
