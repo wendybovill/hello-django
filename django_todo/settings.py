@@ -30,7 +30,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-wendybovill-hellodjango-frit0kpfns9.ws-eu100.gitpod.io',
-    '127.0.0.1']
+    '127.0.0.1',
+    'wb7523-django-todo-app-161ef8bfde7e.herokuapp.com']
 
 
 # Application definition
