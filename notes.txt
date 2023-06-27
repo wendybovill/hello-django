@@ -1,0 +1,5 @@
+When deploying to heroku. Make sure gunicorn is not unicorn
+ensure any unicorn references are removed
+ensure pipfile and requirements files match
+ensure the url for the deployment is in the Allowed ALLOWED_HOSTS in settings.py
+ensure env is in gitignore
