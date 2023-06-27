@@ -3,3 +3,6 @@ ensure any unicorn references are removed
 ensure pipfile and requirements files match
 ensure the url for the deployment is in the Allowed ALLOWED_HOSTS in settings.py
 ensure env is in gitignore
+secret key for django must be in env, and one in settings.py set to ''
+heroku must have own secret key set in vars
+in workspace development is set to true but in production in heroku and in the settings file its set to False
