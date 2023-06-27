@@ -19,16 +19,31 @@ if os.path.isfile("env.py"):
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+development = os.environ.get('DEVELOPMENT', False)
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = os.environ.get(
+    'SECRET_KEY',
+    's*ktcib$#ssi)ligbb1o$seg1+5f)@ry48csfr!=64d_tcmz=')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = development
 
-ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
+
+if development:
+
+    ALLOWED_HOSTS = [
+        'locahost',
+        '127.0.0.1:8080',
+        '127.0.0.1:8000',
+        '8000-wendybovill-hellodjango-frit0kpfns9.ws-eu101.gitpod.io']
+
+else:
+
+    ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
 
 
 # Application definition
@@ -73,20 +88,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'django_todo.wsgi.application'
 
+if development:
 
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+    # Database
+    # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+    DATABASES = {'default': {'ENGINE': 'django.db.backends.sqlite3',
+                             'NAME': os.path.join(BASE_DIR / 'db.sqlite3')}}
 
-DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
-}
+else:
+
+    DATABASES = {'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))}
 
 
 # Password validation
